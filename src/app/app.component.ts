@@ -22,4 +22,8 @@ export class AppComponent {
     {title: 'Post 1', text: 'Prosto text posta', id: 1},
     {title: 'Post 2', text: 'Prosto text vtorogo posta', id: 2},
   ];
+  updateFormPosts(post: Post) {
+    // console.log(post);
+    this.posts.unshift(post)
+  };
 }
