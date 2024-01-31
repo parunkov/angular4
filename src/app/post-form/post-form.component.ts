@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Post } from '../app.component';
 
@@ -11,6 +11,7 @@ import { Post } from '../app.component';
 })
 export class PostFormComponent {
   @Output() onAdd: EventEmitter<Post> = new EventEmitter<Post>();
+  @ViewChild('titleInput', {static: false}) inputRef: ElementRef;
 
   title = '';
   text = '';
@@ -25,5 +26,9 @@ export class PostFormComponent {
       // console.log(post);
       this.title = this.text = '';
     }
+  };
+
+  focusTitle() {
+    this.inputRef.nativeElement.focus();
   };
 }
