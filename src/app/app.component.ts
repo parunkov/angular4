@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PostFormComponent } from './post-form/post-form.component';
 import { PostComponent } from './post/post.component';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 
 export interface Post {
   title: string;
@@ -12,7 +12,7 @@ export interface Post {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [PostFormComponent, PostComponent, NgFor],
+  imports: [PostFormComponent, PostComponent, NgFor, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
