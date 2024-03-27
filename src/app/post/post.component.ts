@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, ContentChild, DoCheck, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, Component, ContentChild, DoCheck, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Post } from '../app.component';
 
 @Component({
@@ -6,7 +6,8 @@ import { Post } from '../app.component';
   standalone: true,
   imports: [],
   templateUrl: './post.component.html',
-  styleUrl: './post.component.scss'
+  styleUrl: './post.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PostComponent implements 
   OnInit, 
