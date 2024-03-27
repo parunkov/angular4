@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   title = 'angular4';
   posts: Post[] = [
     {title: 'Post 1', text: 'Prosto text posta', id: 1},
-    // {title: 'Post 2', text: 'Prosto text vtorogo posta', id: 2},
+    {title: 'Post 2', text: 'Prosto text vtorogo posta', id: 2},
   ];
 
   ngOnInit(): void {
