@@ -3,5 +3,11 @@
     <p>{{ e | number:'1.1-5' }}</p>
     <p>{{ e | number:'3.1-2' }}</p>
     <p>{{ e | number:'1.0-0' }}</p>
+    <p>{{ str | uppercase | lowercase | titlecase }}</p>
+    <p>{{ str | titlecase | slice:1:5 }}</p>
+    <p>{{ str | titlecase | slice:-2 }}</p>
+    <p>{{ date | date:'fullDate' }}</p>
+    <p>{{ date | date:'longDate' }}</p>
+    <p>{{ date | date:'MMMM dd, yyyy, HH:mm:ss' }}</p>
 
 </div>
