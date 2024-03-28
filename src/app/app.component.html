@@ -1,20 +1,7 @@
-<h1>Angular Directives</h1>
-<!-- <p [appStyle]="'red'" fontWeight="bold">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus, sit!</p> -->
-<p [appStyle]="'red'" [dStyles]="{border: '1px solid blue', borderRadius: '5px'}">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus, sit!</p>
-<p [appStyle]="'blue'" [dStyles]="{border: '1px solid red', borderRadius: '15px'}">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus, sit!</p>
+<div class="container">
+    <h1>Angular Pipes</h1>
+    <p>{{ e | number:'1.1-5' }}</p>
+    <p>{{ e | number:'3.1-2' }}</p>
+    <p>{{ e | number:'1.0-0' }}</p>
 
-<button class="btn" (click)="isVisible = !isVisible">Toggle</button>
-
-<!-- <div *ngIf="isVisible" class="wrap">
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime adipisci saepe ullam cupiditate praesentium nam, quas quod possimus labore! Aliquid?</p>
-</div> -->
-
-<!-- <ng-template [ngIf]="isVisible">
-    <div class="wrap">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime adipisci saepe ullam cupiditate praesentium nam, quas quod possimus labore! Aliquid?</p>
-    </div>
-</ng-template> -->
-
-<div *appIfnot="!isVisible" class="wrap">
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime adipisci saepe ullam cupiditate praesentium nam, quas quod possimus labore! Aliquid?</p>
 </div>

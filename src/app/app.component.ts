@@ -1,15 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { StyleDirective } from './directives/style.directive';
-import { NgIf } from '@angular/common';
-import { IfnotDirective } from './directives/ifnot.directive';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [StyleDirective, NgIf, IfnotDirective],
+  imports: [CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent  {
-  isVisible = true;
+  e: number = Math.E;
 }
