@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { FilterPipe } from './pipes/filter.pipe';
+import { Observable } from 'rxjs';
 
 export interface Post {
   title: string;
@@ -12,26 +12,29 @@ export interface Post {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormsModule, FilterPipe],
+  imports: [CommonModule, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 
-export class AppComponent  {
+export class AppComponent implements OnInit {
+  promise: Promise<string> = new Promise<string>(resolve => {
+    setTimeout(() => {
+      resolve('Promise Resolved')
+    }, 4000)
+  })
 
-  search = '';
-  searchField = 'title';
+  date$: Observable<Date> = new Observable(obs => {
+    setInterval(() => {
+      obs.next(new Date())
+    }, 1000)
+  })
 
-  posts: Post[] = [
-    {title: 'Beer', text: 'Самое лучшее пиво в мире'},
-    {title: 'Bred', text: 'The best bread in the world'},
-    {title: 'Javascript', text: 'The best language in the world'},
-  ];
+  date: Date
 
-  addPost() {
-    this.posts.unshift({
-      title: 'Angular',
-      text: 'Test text'
+  ngOnInit(): void {
+    this.date$.subscribe(date => {
+      this.date = date
     })
   }
 }
