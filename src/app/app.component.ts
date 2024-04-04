@@ -13,7 +13,7 @@ export interface Post {
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  providers: [AppCounterService],
+  // providers: [AppCounterService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
