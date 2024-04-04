@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppCounterService } from './services/app-counter.service';
 import { LocalCounterService } from './services/local-counter.service';
+import { CounterComponent } from './counter/counter.component';
 
 export interface Post {
   title: string;
@@ -13,7 +14,7 @@ export interface Post {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, CounterComponent],
   providers: [LocalCounterService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
