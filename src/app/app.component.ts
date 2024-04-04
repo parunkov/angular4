@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppCounterService } from './services/app-counter.service';
+import { LocalCounterService } from './services/local-counter.service';
 
 export interface Post {
   title: string;
@@ -13,11 +14,14 @@ export interface Post {
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  // providers: [AppCounterService],
+  providers: [LocalCounterService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 
 export class AppComponent {
-  constructor(public appCounterService: AppCounterService) {}
+  constructor(
+    public appCounterService: AppCounterService,
+    public localCounterService: LocalCounterService
+    ) {}
 }
