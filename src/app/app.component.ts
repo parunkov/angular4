@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { AppCounterService } from './services/app-counter.service';
 
 export interface Post {
   title: string;
@@ -13,9 +13,11 @@ export interface Post {
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, FormsModule],
+  providers: [AppCounterService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 
 export class AppComponent {
+  constructor(public appCounterService: AppCounterService) {}
 }
