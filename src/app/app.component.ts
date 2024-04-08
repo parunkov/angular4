@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,12 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       email: new FormControl('', [Validators.email, Validators.required]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(12)])
+      password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
+      address: new FormGroup({
+        country: new FormControl('by'),
+        city: new FormControl('', Validators.required)
+      }),
+      skills: new FormArray([])
     })
   }
   submit() {
@@ -25,5 +30,26 @@ export class AppComponent implements OnInit {
       const formData = { ...this.form.value }
       console.log('formData', formData)
     }
+  }
+
+  setCapital() {
+    const cityMap: {[index: string]:string}  = {
+      ru: 'Москва',
+      ua: 'Киев',
+      by: 'Минск'
+    };
+    const cityKey = this.form.get('address')?.get('country')?.value;
+    const city: string = cityMap[cityKey];
+    this.form.patchValue({address: {city}});
+  }
+
+  addSkill() {
+    const control = new FormControl('', Validators.required);
+    // (<FormArray>this.form.get('skills')).push(control);
+    (this.form.get('skills') as FormArray).push(control);
+  }
+
+  getControls() {
+    return (this.form.get('skills') as FormArray).controls;
   }
 }
