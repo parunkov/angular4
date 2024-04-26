@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { Post, PostsService } from '../post.service';
 
 @Component({
   selector: 'app-post',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss',
 })
